@@ -46,10 +46,17 @@ app.post("/", async (req, res) => {
             originDomain,
             destinationDomain
         })).toString();
-        console.error("**** DEBUG :::", relayerFee);
+
+        const relayerFeeUSD = (await sdkBase.estimateRelayerFee({
+            originDomain,
+            destinationDomain,
+            priceIn: "usd"
+        })).toString();
+
 
         res.send({
-            "Relayer Fee : ": relayerFee
+            "Relayer Fee : ": relayerFee,
+            "Relayer Fee USD: ": relayerFeeUSD
         })
 
     } catch (error) {
