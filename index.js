@@ -55,8 +55,8 @@ app.post("/", async (req, res) => {
 
 
         res.send({
-            "Relayer Fee : ": relayerFee,
-            "Relayer Fee USD: ": relayerFeeUSD
+            "FEE": relayerFee,
+            "FEE_USD": relayerFeeUSD
         })
 
     } catch (error) {
